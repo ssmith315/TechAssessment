@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SeanAPITesting
+namespace TechAssessment
 {
-    public class All
+    public class APIClasses
     {
         public class StoredGet
         {
@@ -52,7 +52,7 @@ namespace SeanAPITesting
 
         public static HttpResponseMessage PostToPosts(HttpClient client, int userID, string title, string body)
         {
-            var postData = new All.PostData
+            var postData = new APIClasses.PostData
             {
                 UserId = userID,
                 Title = title,
@@ -65,7 +65,7 @@ namespace SeanAPITesting
         }
         public static HttpResponseMessage PostToComments(HttpClient client, string name, string email, string body, int id)
         {
-            var postComment = new All.PostComment
+            var postComment = new APIClasses.PostComment
             {
                 Name = name,
                 Email = email,
@@ -79,7 +79,7 @@ namespace SeanAPITesting
 
         public static HttpResponseMessage PutToPosts(HttpClient client, int userID, string title, string body, int id)
         {
-            var postData = new All.PostData
+            var postData = new APIClasses.PostData
             {
                 UserId = userID,
                 Title = title,
@@ -94,7 +94,7 @@ namespace SeanAPITesting
         public static int GetPostId(HttpClient client) 
         {
             var response = client.GetAsync("posts").Result.Content.ReadAsStringAsync().Result;
-            All.StoredGet[] items = JsonConvert.DeserializeObject<All.StoredGet[]>(response);
+            APIClasses.StoredGet[] items = JsonConvert.DeserializeObject<APIClasses.StoredGet[]>(response);
             var firstItem = items.FirstOrDefault();
             int firstItemID = firstItem.Id;
             return firstItemID;
