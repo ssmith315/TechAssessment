@@ -6,9 +6,9 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 
-namespace SeanAPITesting
+namespace TechAssessment
 {
-    public class UI
+    public class UiClasses
     {
 
         public static void SelectSubMenuItem(IWebDriver driver, Actions action, string menuPath, string subMenuPath) 
